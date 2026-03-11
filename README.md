@@ -82,6 +82,15 @@ This project enforces client-side redaction: any PII is anonymized locally by `r
 - [ ] Local-Only Mode: integrate Llama 3.3 or other local models for air-gapped deployments.
 - [ ] Streamlit UI: build a professional dashboard for lawyers to inspect graph state and audit results.
 
+## 🕵️ Observability & Monitoring
+Integrated with **LangSmith** for full-trace observability. This allows for:
+* **Cost Tracking:** Real-time monitoring of token usage ($0.15/1M tokens).
+* **Latency Analysis:** Identifying bottlenecks in the retrieval process.
+* **Debuggability:** Step-by-step inspection of agent reasoning.
+
+## 🤝 Human-in-the-Loop (HITL)
+Designed for high-stakes legal environments, the system features a **'Safe-Stop'** mechanism. The agent pauses after the Research phase, allowing a human lawyer to verify the retrieved precedents before the final LLM Audit is generated.
+
 ---
 
 ## Developer
