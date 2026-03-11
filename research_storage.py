@@ -9,6 +9,15 @@ class LegalKnowledgeBase:
         # Store data locally in a folder called 'qdrant_storage'
         self.client = QdrantClient(path="qdrant_storage")
         self.embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+        collections = self.client.get_collections().collections
+        exists = any(c.name == collection_name for c in collections)
+
+        if not exists:
+            print(f"📦 Creating new collection: {collection_name}")
+            self.client.create_collection(
+            collection_name=collection_name,
+            vectors_config={"size": 384, "distance": "Cosine"} # 384 is the size for bge-small
+        )
 
     def upload_documents(self, texts: list, metadatas: list = None):
         """Turn legal text into vectors and store them."""
