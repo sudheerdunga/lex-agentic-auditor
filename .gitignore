@@ -11,3 +11,5 @@ secrets.json
 models/
 data/*.pdf
 data/*.csv
+
+qdrant_storage/
