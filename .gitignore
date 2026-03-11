@@ -1,0 +1,13 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment & Secrets
+.env
+secrets.json
+
+# Large AI Models/Data
+models/
+data/*.pdf
+data/*.csv
