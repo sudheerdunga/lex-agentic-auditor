@@ -13,3 +13,4 @@ data/*.pdf
 data/*.csv
 
 qdrant_storage/
+.streamlit/secrets.toml

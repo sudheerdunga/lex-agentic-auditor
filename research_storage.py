@@ -7,7 +7,8 @@ class LegalKnowledgeBase:
     def __init__(self, collection_name="legal_precedents"):
         self.collection_name = collection_name
         # Store data locally in a folder called 'qdrant_storage'
-        self.client = QdrantClient(path="qdrant_storage")
+        self.client = QdrantClient(url=os.getenv("QDRANT_URL"), 
+    api_key=os.getenv("QDRANT_API_KEY"))
         self.embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
         collections = self.client.get_collections().collections
         exists = any(c.name == collection_name for c in collections)
